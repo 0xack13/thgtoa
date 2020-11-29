@@ -23,6 +23,7 @@
     -   [Your Browser and Device Fingerprints:]
     -   [Your Face and other Biometrics:]
     -   [Phishing:]
+    -   [Forensics:]
     -   [Notes:]
 -   [General Preparations:]
     -   [Picking your route:]
@@ -583,6 +584,25 @@ Phishing[^115] is a type of attack where an adversary could try to extract infor
 A typical case is an adversary using a man-in-the-middle^35^ attack or a falsified e-mail/call to ask your credential for a service. This can be your e-mail or your financial services for example.
 
 Such attacks can also be used to de-anonymize someone by tricking them into downloading malware.
+
+Forensics:
+----------
+
+Most of you have probably seen enough Crime dramas on Netflix or TV to know what forensics are. These are technicians (usually working for law enforcement) that will perform various analysis of evidence. This of course could include your smartphone or laptop.
+
+While these might be done by an adversary when you already got "burned", these might also be done randomly during a routine control or a border check. These unrelated checks might reveal secret information to adversaries that had no prior knowledge of such activities.
+
+Forensics techniques are now very advanced and can reveal a staggering amount information from your devices even if they're encrypted. These techniques are widely used by law enforcement all over the world and should be considered.
+
+Here are some recent resources you should read about your smartphone:
+
+-   UpTurn, The Widespread Power of U.S. Law Enforcement to Search Mobile Phones <https://www.upturn.org/reports/2020/mass-extraction/>
+
+-   New-York Times, The Police Can Probably Break Into Your Phone <https://www.nytimes.com/2020/10/21/technology/iphone-encryption-police.html>
+
+-   Vice, Cops Around the Country Can Now Unlock iPhones, Records Show <https://www.vice.com/en/article/vbxxxd/unlock-iphone-ios11-graykey-grayshift-police>
+
+When it comes to your laptop, the forensics techniques are many and widespread. Too many to be listed in this guide. But this guide will nonetheless guide you into mitigating most forensic techniques and hopefully help you protect yourself from "most" adversaries.
 
 Notes:
 ------
@@ -3145,6 +3165,7 @@ These are the steps to create a Windows 10 (20H2 as of November 2020) Installati
   [Your Browser and Device Fingerprints:]: #your-browser-and-device-fingerprints
   [Your Face and other Biometrics:]: #your-face-and-other-biometrics
   [Phishing:]: #phishing
+  [Forensics:]: #forensics
   [Notes:]: #notes
   [General Preparations:]: #general-preparations
   [Picking your route:]: #picking-your-route
