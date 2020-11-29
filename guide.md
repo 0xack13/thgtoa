@@ -1015,7 +1015,7 @@ Now you'll have to pick your next step between two options:
 
         -   Requires full wipe of your laptop
 
-        -   No use with an SSD drive due to requirement of disabling Trim Operations[^137]. This will severely degrade the performance/health of your SSD drive over time.
+        -   No use with an SSD drive due to requirement of disabling Trim[^137] Operations[^138]. This will severely degrade the performance/health of your SSD drive over time.
 
 **As you can see, Route C really only offers two privacy advantages over the others and it will only be of use against a "soft" (lawful and nice) adversary.**
 
@@ -1059,15 +1059,15 @@ This route is rather straightforward and will just encrypt your current Operatin
 
 -   Click Next as the Generated Keys screen
 
--   To rescue disk[^138] or not rescue disk, well that's up to you. I recommend making one (just in case), just make sure to store it outside your encrypted drive (USB key for instance, or wait and see the end of this guide for guidance on safe backups). This rescue disk will not store your passphrase and you'll still need it to use it.
+-   To rescue disk[^139] or not rescue disk, well that's up to you. I recommend making one (just in case), just make sure to store it outside your encrypted drive (USB key for instance, or wait and see the end of this guide for guidance on safe backups). This rescue disk will not store your passphrase and you'll still need it to use it.
 
 -   Wipe mode:
 
     -   If you have no sensitive data yet on this laptop, select None
 
-    -   If you have sensitive data on an SSD, Trim should take care of it but I would recommend 1 pass (random data) just to be sure.
+    -   If you have sensitive data on an SSD, Trim alone should take care of it[^140] but I would recommend 1 pass (random data) just to be sure.
 
-    -   If you have sensitive data on an HDD, There is no Trim and I would recommend 3-pass.
+    -   If you have sensitive data on an HDD, There is no Trim and I would recommend at least 1-pass.
 
 -   Test your setup. Veracrypt will now reboot your system to test the bootloader before encryption. This test has to pass in order for encryption to go forward.
 
@@ -1111,7 +1111,7 @@ This process will do the following:
 
 -   This means that your current Windows 10 will become the hidden Windows 10 and that you will need to reinstall a fresh decoy Windows 10 OS.
 
-**Mandatory if you have an SSD drive and you still want to do this against the recommendation: Disable SSD Trim in Windows**[^139] **(again this is NOT recommended at all as** **disabling Trim in itself is highly suspicious**).**Also** **as mentioned earlier, disabling Trim will reduce the lifetime of your SSD drive and will significantly impact its performance over time (your laptop will become slower and slower over several months of use until it becomes almost unusable, you will then have to clean the drive and re-install everything). But you have to do it to prevent data leaks**[^140] **that could allow forensics to defeat your plausible deniability**[^141][^142]**. The only way around this at the moment is to have a laptop with a classic HDD drive instead.**
+**Mandatory if you have an SSD drive and you still want to do this against the recommendation: Disable SSD Trim in Windows**[^141] **(again this is NOT recommended at all as** **disabling Trim in itself is highly suspicious**).**Also** **as mentioned earlier, disabling Trim will reduce the lifetime of your SSD drive and will significantly impact its performance over time (your laptop will become slower and slower over several months of use until it becomes almost unusable, you will then have to clean the drive and re-install everything). But you have to do it to prevent data leaks**[^142] **that could allow forensics to defeat your plausible deniability**[^143][^144]**. The only way around this at the moment is to have a laptop with a classic HDD drive instead.**
 
 ##### Step 1: Create a Windows 10 install USB key
 
@@ -1227,7 +1227,7 @@ Now we will encrypt the Decoy OS:
 
 -   Click Next as the Generated Keys screen
 
--   To rescue disk[^143] or not rescue disk, well that's up to you. I recommend making one (just in case), just make sure to store it outside your encrypted drive (USB key for instance, or wait and see the end of this guide for guidance on safe backups). This rescue disk will not store your passphrase and you'll still need it to use it.
+-   To rescue disk[^145] or not rescue disk, well that's up to you. I recommend making one (just in case), just make sure to store it outside your encrypted drive (USB key for instance, or wait and see the end of this guide for guidance on safe backups). This rescue disk will not store your passphrase and you'll still need it to use it.
 
 -   Wipe mode: Select 1-Pass just to be safe
 
@@ -1343,7 +1343,7 @@ You're done and can go to next step.
 
 Ths step and the following steps should be done from within the Host OS. This can either be your Host OS with simple encryption or your Hidden OS with plausible deniability.
 
-In the Whonix route, we will make extensive use of the free Oracle Virtualbox[^144] software. This is a virtualization software in which you can create Virtual Machines that emulate a computer running a specific OS (if you want to use something else like KVM in Linux, feel free to do so).
+In the Whonix route, we will make extensive use of the free Oracle Virtualbox[^146] software. This is a virtualization software in which you can create Virtual Machines that emulate a computer running a specific OS (if you want to use something else like KVM in Linux, feel free to do so).
 
 **All your hidden anonymous activities will be done from within a client Virtual Machine running Windows 10 Pro (not Home this time) or Linux.**
 
@@ -1383,7 +1383,7 @@ You might be wondering: Well what about using Tor over VPN instead of VPN over T
 
 -   This would result in you connecting to various services using the IP of a Tor Exit Node which are banned/flagged in many places.
 
-This route will use Virtualization and Whonix[^145] as part of the anonymization process. Whonix is a Linux distribution composed of two Virtual Machines:
+This route will use Virtualization and Whonix[^147] as part of the anonymization process. Whonix is a Linux distribution composed of two Virtual Machines:
 
 -   The Whonix Workstation (this is a VM where you can conduct anonymous activities)
 
@@ -1405,11 +1405,11 @@ Whonix is well maintained and has extensive documentation.
 
 #### A note on Virtualbox Snapshots:
 
-Later on you will create and run several Virtual Machines within Virtualbox for your anonymous activities. Virtualbox provides a feature called "Snapshots"[^146] that allow for saving the state of a VM at any point in time. If for any reason later you want to go back to that state, you can restore that snapshot at any moment.
+Later on you will create and run several Virtual Machines within Virtualbox for your anonymous activities. Virtualbox provides a feature called "Snapshots"[^148] that allow for saving the state of a VM at any point in time. If for any reason later you want to go back to that state, you can restore that snapshot at any moment.
 
 I recommend that you do make use of this feature by creating a snapshot after the initial installation / update of each VM. This snapshot should be done before their use for any sensitive/anonymous activity.
 
-This will allow you to turn your VMs into a kind of "Live Operating Systems" (like TAILS discussed earlier). Meaning that you will be able to erase all the traces of your activities within a VM by restoring a Snapshot to an earlier state. Of course this won't be "as good" as TAILS (where everything is stored in memory) as there might be traces of this activity left on your hard disk. Forensics studies have shown the ability to recover data from a reverted VM[^147]. Fortunately there will be ways to remove those traces after deletion or reverting to a previous snapshot. Such techniques will be discussed in the "Cover your tracks" section of this guide.
+This will allow you to turn your VMs into a kind of "Live Operating Systems" (like TAILS discussed earlier). Meaning that you will be able to erase all the traces of your activities within a VM by restoring a Snapshot to an earlier state. Of course this won't be "as good" as TAILS (where everything is stored in memory) as there might be traces of this activity left on your hard disk. Forensics studies have shown the ability to recover data from a reverted VM[^149]. Fortunately there will be ways to remove those traces after deletion or reverting to a previous snapshot. Such techniques will be discussed in the "Cover your tracks" section of this guide.
 
 You may now go ahead and download Virtualbox from <https://www.virtualbox.org/wiki/Downloads>
 
@@ -1607,9 +1607,9 @@ In both cases you should set the VPN to start from boot and enable the "kill swi
 
 ### KeepassXC:
 
-You will need something to store your data (logins/passwords, identities and TOTP[^148] information).
+You will need something to store your data (logins/passwords, identities and TOTP[^150] information).
 
-For this purpose I strongly recommend KeepassXC because of their TOTP feature. This is the ability to create entries for 2FA[^149] authentication with the authenticator feature.
+For this purpose I strongly recommend KeepassXC because of their TOTP feature. This is the ability to create entries for 2FA[^151] authentication with the authenticator feature.
 
 Here are the tutorials:
 
@@ -1634,7 +1634,7 @@ Understanding the methods used to prevent anonymity and verify identity:
 
 ### Captchas:
 
-Captcha[^150] stands for "Completely Automated Public Turing test to tell Computers and Humans Apart" are Turing tests[^151] puzzles you need to complete before accessing a form/website. You'll mostly encounter those provided by Google (reCaptcha service[^152]) and Cloudflare (hCaptcha[^153]). hCaptcha is used on 15% of the internet by their own metrics[^154].
+Captcha[^152] stands for "Completely Automated Public Turing test to tell Computers and Humans Apart" are Turing tests[^153] puzzles you need to complete before accessing a form/website. You'll mostly encounter those provided by Google (reCaptcha service[^154]) and Cloudflare (hCaptcha[^155]). hCaptcha is used on 15% of the internet by their own metrics[^156].
 
 ![][12]
 
@@ -1642,13 +1642,13 @@ They're designed to separate bots from humans but in reality are also used to de
 
 If you frequently use VPNs , you'll quickly encounter many captchas everywhere. Quite often when using Tor, even if you succeed in solving all the puzzles, you'll still be denied after solving the puzzles.
 
-While most people think those puzzles are only about solving a little puzzle, it's important to understand that it's much more complex and that modern Captchas uses advanced machine learning and risk analysis algorithms to check if you're human[^155]:
+While most people think those puzzles are only about solving a little puzzle, it's important to understand that it's much more complex and that modern Captchas uses advanced machine learning and risk analysis algorithms to check if you're human[^157]:
 
--   They check your browser, cookies and browsing history using Browser fingerprinting[^156].
+-   They check your browser, cookies and browsing history using Browser fingerprinting[^158].
 
 -   They track your cursor movements (speed, accuracy) and use algorithms to determine if it's "human".
 
--   They track your behavior before/during/after the tests to ensure you're "human"[^157].
+-   They track your behavior before/during/after the tests to ensure you're "human"[^159].
 
 It's also very likely that those platforms could already reliably identify you based on the unique way you interact with those puzzles. This could work despite obfuscation of your IP address / Browser and clearing all cookies.
 
@@ -1666,7 +1666,7 @@ Fortunately as far as I'm aware, these are not yet officially/publicly used to d
 
 Phone verification is advertised by most platforms as a way to verify you're human. But don't be fooled, the main reason for phone verification is not only to check if you're human but also to be able to de-anonymize you if needed.
 
-Most platforms (including the privacy oriented ones such as Signal/Telegram/Protonmail will require a phone number to register and most countries now make it mandatory to submit a proof of ID to register[^158].
+Most platforms (including the privacy oriented ones such as Signal/Telegram/Protonmail will require a phone number to register and most countries now make it mandatory to submit a proof of ID to register[^160].
 
 ### E-Mail verification:
 
@@ -1728,9 +1728,9 @@ For this reason, this guide recommends the use of VPN over Tor (and not Tor over
 
 ### Browser and Device Fingerprinting:
 
-Browser and Device[^159] Fingerprinting are usually integrated into the Captcha services but also in other various services.
+Browser and Device[^161] Fingerprinting are usually integrated into the Captcha services but also in other various services.
 
-Many platforms (like Google[^160]) will check your browser for various capabilities and settings and block Browsers they don't like. This is one of the reasons I recommend using Brave Browser over Tor Browser within your VM.
+Many platforms (like Google[^162]) will check your browser for various capabilities and settings and block Browsers they don't like. This is one of the reasons I recommend using Brave Browser over Tor Browser within your VM.
 
 Here are some of the things they check within recent browsers:
 
@@ -1806,7 +1806,7 @@ Why do this user verification ourselves when we can just ask others to deal with
 
 You'll notice this and you probably already encountered this. Some apps/platforms will ask/require you to sign-in with a well-known and well-used reputable platform instead of their own system (Sign-in with Google/Facebook/Apple/Twitter).
 
-This option is often presented as the "default one", hiding away the "Sign-in with e-mail and password" with clever Dark Patterns[^161] and unfortunately sometimes required.
+This option is often presented as the "default one", hiding away the "Sign-in with e-mail and password" with clever Dark Patterns[^163] and unfortunately sometimes required.
 
 This method will delegate the verification process on those platforms instead assuming that you won't be able to create an anonymous Google/Facebook/Apple/Twitter account with ease.
 
@@ -1820,7 +1820,7 @@ Some platforms/apps will require you to take a live picture of yourself either d
 
 ![][13]
 
-This guide won't cover this one (yet) as it's mainly used on financial platforms (that will be able to identify you with other means anyway) and some dating apps like Tinder[^162].
+This guide won't cover this one (yet) as it's mainly used on financial platforms (that will be able to identify you with other means anyway) and some dating apps like Tinder[^164].
 
 In some cases these verifications have to be done from your Smartphone and with an "in-app" camera to prevent you from sending a previously saved (edited) image.
 
@@ -1953,9 +1953,9 @@ You obviously need an e-mail for your online identity and disposable e-mails are
 
 Protonmail is a free e-mail provider based in Switzerland that advocates security and privacy.
 
-They're recommended by privacytools.io[^163]. Their only apparent issue is that they do require (in most cases) a phone number or another e-mail address for registration (when you try to register from a VPN or Tor at least).
+They're recommended by privacytools.io[^165]. Their only apparent issue is that they do require (in most cases) a phone number or another e-mail address for registration (when you try to register from a VPN or Tor at least).
 
-They claim they do not store/link the phone/e-mail associated with the registration but only store a hash that is not linked to the account[^164]. As long as their claim is true and the hash is not linked to your account, and that you followed my guide regarding the Burner phone and the pre-paid SIM card, you should be safe from tracking.
+They claim they do not store/link the phone/e-mail associated with the registration but only store a hash that is not linked to the account[^166]. As long as their claim is true and the hash is not linked to your account, and that you followed my guide regarding the Burner phone and the pre-paid SIM card, you should be safe from tracking.
 
 Create this e-mail account first using the burner phone as verification if necessary.
 
@@ -1974,7 +1974,7 @@ Google:
 
 Protonmail is good ... but to appear less suspicious, it's just better to also have a Google Mail account.
 
-As Protonmail, Google will also most likely require a phone number during sign-up as part of their verification process. However contrary to Protonmail, Google will store that phone number during the sign-up process and will also limit the amount of accounts that can be created during the sign-up[^165],[^166].
+As Protonmail, Google will also most likely require a phone number during sign-up as part of their verification process. However contrary to Protonmail, Google will store that phone number during the sign-up process and will also limit the amount of accounts that can be created during the sign-up[^167],[^168].
 
 From my experience during my research, this count is limited to 3 accounts / phone number. If you are unlucky with your number (if it was previously used by another mobile user), it might be less.
 
@@ -2004,7 +2004,7 @@ Do not use that account for "sign-up with Google" anywhere unless necessary.
 
 Be extremely careful if you decide to use the account for Google activities (such as Google Maps reviews or Youtube Comments) as those can easily trigger some checks (Negative reviews, Comments breaking Community Guidelines on Youtube).
 
-If your account gets suspended [^167] (this can happen on sign-up, after signing-up or after using it in some Google services), you can still get it unsuspended by submitting[^168] an appeal/verification (which will again require your Phone number and possibly an e-mail contact with Google support with the reason). Suspension of the account does not disable the e-mail forwarding but suspended account will be deleted after a while.
+If your account gets suspended [^169] (this can happen on sign-up, after signing-up or after using it in some Google services), you can still get it unsuspended by submitting[^170] an appeal/verification (which will again require your Phone number and possibly an e-mail contact with Google support with the reason). Suspension of the account does not disable the e-mail forwarding but suspended account will be deleted after a while.
 
 After suspension, if your Google account is restored, you should be fine.
 
@@ -2051,7 +2051,7 @@ Once the account is restored, you should take some time to do the following:
 
 After about a week, you should check the twitter again and the chances are quite high that it will be suspended again for "suspicious activity" or "violating community guidelines" despite you not using it at all (not even a single tweet/follow/like/retweet or DM) but this time by another system. I call this the "Double tap".
 
-This time you will need to submit an appeal using a form [^169] , provide a good reason and wait for the appeal to be processed by Twitter. During that process, it's possible that you will receive an e-mail (on Protonmail) asking you to reply to a customer service ticket to prove that you do have access to your e-mail and that it's you. This will be directed toward your Gmail address but will arrive on your Protonmail.
+This time you will need to submit an appeal using a form [^171] , provide a good reason and wait for the appeal to be processed by Twitter. During that process, it's possible that you will receive an e-mail (on Protonmail) asking you to reply to a customer service ticket to prove that you do have access to your e-mail and that it's you. This will be directed toward your Gmail address but will arrive on your Protonmail.
 
 Obviously do not reply from Protonmail as this will raise suspicions, you have to sign-in into Gmail (unfortunately) and compose a new mail from there copy pasting the E-Mail , Subject and Content from Protonmail. As well as a reply confirming you have access to that e-mail.
 
@@ -2074,7 +2074,7 @@ Linkedin is far less aggressive than twitter but will nonetheless require a vali
 
 Linkedin however is relying a lot on reports and user/customer moderation. You should not create a profile with an occupation inside a private corporations or a small startup company. The company employees are monitoring Linkedin activity and receive notifications when new people join. They can then report your profile as fake and your profile will then be suspensed or banned pending appeal.
 
-Linkedin will then require you go through a verification process that will unfortunately require you to send an ID proof (identity card, passport, driver license). This ID verification is processed by a company called Jumio[^170] that specializes in ID proofind. This is most likely a dead end as this would force you to develop some strong photoshop skills.
+Linkedin will then require you go through a verification process that will unfortunately require you to send an ID proof (identity card, passport, driver license). This ID verification is processed by a company called Jumio[^172] that specializes in ID proofind. This is most likely a dead end as this would force you to develop some strong photoshop skills.
 
 Instead you are far less likely to be reported if you just stay vague (say you're a student/intern/freelance) or pretend you work for a large public institution that is too large for anyone to care of check.
 
@@ -2150,7 +2150,7 @@ When people stand behind their opinions and actions, our community is safer and 
 ```
 -   Will they require a phone number? Yes and probably more later
 
--   Can you create accounts through Tor? Yes but it's very difficult and their onion address[^171] won't help. In most cases you'll just have a random error at sign-up and your account suspended after sign-in.
+-   Can you create accounts through Tor? Yes but it's very difficult and their onion address[^173] won't help. In most cases you'll just have a random error at sign-up and your account suspended after sign-in.
 
 Facebook is one of the most aggressive platforms in identity verification and is pushing hard their "real name policy". It is why this guide is only advised to German residents.
 
@@ -2285,7 +2285,7 @@ What about those mobile only apps (Whatsapp/Signal):
 
 There are only three ways of securely using those anonymously (that I would recommend). Using a VPN on your phone is not among those ways. All of those are unfortunately "tedious" to say the least.
 
--   Use an Android Emulator (Youwave[^172], Bluestacks[^173] or if you have a powerful PC, Android Studio) within the Windows VM and run the App through your multi-layer of Tor/VPN. Drawback is that such emulators are usually quite resource hungry and will slow down your VM and use more battery. Here is also an (outdated) guide on this matter: <https://www.bellingcat.com/resources/how-tos/2018/08/23/creating-android-open-source-research-device-pc/>
+-   Use an Android Emulator (Youwave[^174], Bluestacks[^175] or if you have a powerful PC, Android Studio) within the Windows VM and run the App through your multi-layer of Tor/VPN. Drawback is that such emulators are usually quite resource hungry and will slow down your VM and use more battery. Here is also an (outdated) guide on this matter: <https://www.bellingcat.com/resources/how-tos/2018/08/23/creating-android-open-source-research-device-pc/>
 
 -   Use a non-official app (such as Wassapp for Whatsapp) to connect from the Windows VM to the app. But at your own risk as you could get banned for violating the terms of services by using a non-official App.
 
@@ -2489,7 +2489,7 @@ Unfortunately you won't be able to wipe your Host OS using the built-in tools wi
 
 So you'll have to wipe it using bootable USB key again. But this time not Windows.
 
-There are several utilities that are recommend (like the old unmaintained DBAN[^174]) for this but personally, I will recommend the use of ShredOS.
+There are several utilities that are recommend (like the old unmaintained DBAN[^176]) for this but personally, I will recommend the use of ShredOS.
 
 Feel free do go with DBAN instead if you want, the process is basically the same but might not work out of the box with UEFI laptops.
 
@@ -2703,7 +2703,7 @@ Privacy Settings:
 Appendix B: (Windows Additional Privacy Settings)
 =================================================
 
-As written earlier in this guide and as noted by Privacytools.io[^175], Windows 10 is a privacy nightmare. And disabling everything during and after the installation using the settings available to you is not enough. The amount of telemetry data collected by Microsoft is staggering and could defeat your attempts at keeping secrets. You will need to download and use a couple utilities to (hopefully) force Windows 10 into not sending data back to Microsoft.
+As written earlier in this guide and as noted by Privacytools.io[^177], Windows 10 is a privacy nightmare. And disabling everything during and after the installation using the settings available to you is not enough. The amount of telemetry data collected by Microsoft is staggering and could defeat your attempts at keeping secrets. You will need to download and use a couple utilities to (hopefully) force Windows 10 into not sending data back to Microsoft.
 
 Here are the steps in details:
 
@@ -3036,87 +3036,91 @@ These are the steps to create a Windows 10 (20H2 as of November 2020) Installati
 
 [^136]: SANS, Windows ShellBag Forensics inDepth <https://www.sans.org/reading-room/whitepapers/forensics/windows-shellbag-forensics-in-depth-34545>
 
-[^137]: Veracrypt Documentation, Trim Operations <https://www.veracrypt.fr/en/Trim%20Operation.html>
+[^137]: Wikipedia, Trim <https://en.wikipedia.org/wiki/Trim_(computing)>
 
-[^138]: Veracrypt Documentation, Rescue Disk <https://www.veracrypt.fr/en/VeraCrypt%20Rescue%20Disk.html>
+[^138]: Veracrypt Documentation, Trim Operations <https://www.veracrypt.fr/en/Trim%20Operation.html>
 
-[^139]: WindowsCentrel, Trim Tutorial <https://www.windowscentral.com/how-ensure-trim-enabled-windows-10-speed-ssd-performance>
+[^139]: Veracrypt Documentation, Rescue Disk <https://www.veracrypt.fr/en/VeraCrypt%20Rescue%20Disk.html>
 
-[^140]: Veracrypt Documentation, Trim Operation <https://veracrypt.eu/en/docs/trim-operation/>
+[^140]: St Cloud State University, Forensic Research on Solid State Drives using Trim Analysis <https://repository.stcloudstate.edu/cgi/viewcontent.cgi?article=1141&context=msia_etds>
 
-[^141]: Black Hat 2018, Perfectly Deniable Steganographic Disk Encryption <https://i.blackhat.com/eu-18/Thu-Dec-6/eu-18-Schaub-Perfectly-Deniable-Steganographic-Disk-Encryption.pdf>
+[^141]: WindowsCentrel, Trim Tutorial <https://www.windowscentral.com/how-ensure-trim-enabled-windows-10-speed-ssd-performance>
 
-[^142]: Milan Broz's Blog, TRIM & dm-crypt \... problems? <http://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html>
+[^142]: Veracrypt Documentation, Trim Operation <https://veracrypt.eu/en/docs/trim-operation/>
 
-[^143]: Veracrypt Documentation, Rescue Disk <https://www.veracrypt.fr/en/VeraCrypt%20Rescue%20Disk.html>
+[^143]: Black Hat 2018, Perfectly Deniable Steganographic Disk Encryption <https://i.blackhat.com/eu-18/Thu-Dec-6/eu-18-Schaub-Perfectly-Deniable-Steganographic-Disk-Encryption.pdf>
 
-[^144]: Wikipedia, Virtualbox <https://en.wikipedia.org/wiki/VirtualBox>
+[^144]: Milan Broz's Blog, TRIM & dm-crypt \... problems? <http://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html>
 
-[^145]: Wikipedia, Whonix <https://en.wikipedia.org/wiki/Whonix>
+[^145]: Veracrypt Documentation, Rescue Disk <https://www.veracrypt.fr/en/VeraCrypt%20Rescue%20Disk.html>
 
-[^146]: Oracle Virtualbox Manual, Snapshots <https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/snapshots.html>
+[^146]: Wikipedia, Virtualbox <https://en.wikipedia.org/wiki/VirtualBox>
 
-[^147]: Utica College, FORENSIC RECOVERY OF EVIDENCE FROM DELETED ORACLE VIRTUALBOX VIRTUAL MACHINES <https://programs.online.utica.edu/sites/default/files/Neal_6_Gonnella_Forensic_Recovery_of_Evidence_from_Deleted_Oracle_VirtualBox_Virtual_Machine.pdf>
+[^147]: Wikipedia, Whonix <https://en.wikipedia.org/wiki/Whonix>
 
-[^148]: Wikipedia, TOTP <https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm>
+[^148]: Oracle Virtualbox Manual, Snapshots <https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/snapshots.html>
 
-[^149]: Wikipedia, Multi-Factor Authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>
+[^149]: Utica College, FORENSIC RECOVERY OF EVIDENCE FROM DELETED ORACLE VIRTUALBOX VIRTUAL MACHINES <https://programs.online.utica.edu/sites/default/files/Neal_6_Gonnella_Forensic_Recovery_of_Evidence_from_Deleted_Oracle_VirtualBox_Virtual_Machine.pdf>
 
-[^150]: Wikipedia, Captcha <https://en.wikipedia.org/wiki/CAPTCHA>
+[^150]: Wikipedia, TOTP <https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm>
 
-[^151]: Wikipedia, Turing Test <https://en.wikipedia.org/wiki/Turing_test>
+[^151]: Wikipedia, Multi-Factor Authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>
 
-[^152]: Google reCaptcha <https://www.google.com/recaptcha/about/>
+[^152]: Wikipedia, Captcha <https://en.wikipedia.org/wiki/CAPTCHA>
 
-[^153]: hCaptcha <https://www.hcaptcha.com/>
+[^153]: Wikipedia, Turing Test <https://en.wikipedia.org/wiki/Turing_test>
 
-[^154]: hCaptcha hCaptcha Is Now the Largest Independent CAPTCHA Service, Runs on 15% Of The Internet <https://www.hcaptcha.com/post/hcaptcha-now-the-largest-independent-captcha-service>
+[^154]: Google reCaptcha <https://www.google.com/recaptcha/about/>
 
-[^155]: ArsTechnica, "Google's reCAPTCHA turns "invisible," will separate bots from people without challenges" <https://arstechnica.com/gadgets/2017/03/googles-recaptcha-announces-invisible-background-captchas/>
+[^155]: hCaptcha <https://www.hcaptcha.com/>
 
-[^156]: BlackHat Asia 2016, "I'm not a human: Breaking the Google reCAPTCHA", <https://www.blackhat.com/docs/asia-16/materials/asia-16-Sivakorn-Im-Not-a-Human-Breaking-the-Google-reCAPTCHA-wp.pdf>
+[^156]: hCaptcha hCaptcha Is Now the Largest Independent CAPTCHA Service, Runs on 15% Of The Internet <https://www.hcaptcha.com/post/hcaptcha-now-the-largest-independent-captcha-service>
 
-[^157]: Google Blog <https://security.googleblog.com/2014/12/are-you-robot-introducing-no-captcha.html>
+[^157]: ArsTechnica, "Google's reCAPTCHA turns "invisible," will separate bots from people without challenges" <https://arstechnica.com/gadgets/2017/03/googles-recaptcha-announces-invisible-background-captchas/>
 
-[^158]: Privacy International,
+[^158]: BlackHat Asia 2016, "I'm not a human: Breaking the Google reCAPTCHA", <https://www.blackhat.com/docs/asia-16/materials/asia-16-Sivakorn-Im-Not-a-Human-Breaking-the-Google-reCAPTCHA-wp.pdf>
+
+[^159]: Google Blog <https://security.googleblog.com/2014/12/are-you-robot-introducing-no-captcha.html>
+
+[^160]: Privacy International,
 
     Timeline of SIM Card Registration Laws <https://privacyinternational.org/long-read/3018/timeline-sim-card-registration-laws>
 
-[^159]: Wikipedia, Device Fingerprinting <https://en.wikipedia.org/wiki/Device_fingerprint>
+[^161]: Wikipedia, Device Fingerprinting <https://en.wikipedia.org/wiki/Device_fingerprint>
 
-[^160]: Developers Google Blog,
+[^162]: Developers Google Blog,
 
     Guidance to developers affected by our effort to block less secure browsers and applications <https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html>
 
-[^161]: Wikipedia, Dark Pattern <https://en.wikipedia.org/wiki/Dark_pattern>
+[^163]: Wikipedia, Dark Pattern <https://en.wikipedia.org/wiki/Dark_pattern>
 
-[^162]: The Verge, Tinder will give you a verified blue check mark if you pass its catfishing test <https://www.theverge.com/2020/1/23/21077423/tinder-photo-verification-blue-checkmark-safety-center-launch-noonlight>
+[^164]: The Verge, Tinder will give you a verified blue check mark if you pass its catfishing test <https://www.theverge.com/2020/1/23/21077423/tinder-photo-verification-blue-checkmark-safety-center-launch-noonlight>
 
-[^163]: Privacytools.io Recommended E-mail Providers <https://privacytools.io/providers/email/>
+[^165]: Privacytools.io Recommended E-mail Providers <https://privacytools.io/providers/email/>
 
-[^164]: Protonmail Human Verification System <https://protonmail.com/support/knowledge-base/human-verification/>
+[^166]: Protonmail Human Verification System <https://protonmail.com/support/knowledge-base/human-verification/>
 
-[^165]: Google Help <https://support.google.com/accounts/answer/114129?hl=en>
+[^167]: Google Help <https://support.google.com/accounts/answer/114129?hl=en>
 
-[^166]: Google Help <https://support.google.com/google-ads/answer/7474263?hl=en>
+[^168]: Google Help <https://support.google.com/google-ads/answer/7474263?hl=en>
 
-[^167]: Google, Your account is disabled <https://support.google.com/accounts/answer/40695>
+[^169]: Google, Your account is disabled <https://support.google.com/accounts/answer/40695>
 
-[^168]: Google, Request to restore the account <https://support.google.com/accounts/contact/disabled2>
+[^170]: Google, Request to restore the account <https://support.google.com/accounts/contact/disabled2>
 
-[^169]: Twitter Appeal Form <https://help.twitter.com/forms/general>
+[^171]: Twitter Appeal Form <https://help.twitter.com/forms/general>
 
-[^170]: Jumio, ID verification features <https://www.jumio.com/features/>
+[^172]: Jumio, ID verification features <https://www.jumio.com/features/>
 
-[^171]: Facebook Onion Website <http://facebookcorewwwi.onion>
+[^173]: Facebook Onion Website <http://facebookcorewwwi.onion>
 
-[^172]: Youwave, <https://youwave.com/>
+[^174]: Youwave, <https://youwave.com/>
 
-[^173]: Bluestacks, <https://www.bluestacks.com/>
+[^175]: Bluestacks, <https://www.bluestacks.com/>
 
-[^174]: DBAN, <https://dban.org/>
+[^176]: DBAN, <https://dban.org/>
 
-[^175]: Privacytools.io, Operating Systems <https://privacytools.io/operating-systems/>
+[^177]: Privacytools.io, Operating Systems <https://privacytools.io/operating-systems/>
 
   [Introduction:]: #introduction
   [Requirements:]: #requirements
