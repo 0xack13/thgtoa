@@ -29,6 +29,7 @@
     -   [Picking your route:]
         -   [Budget/Material limitations:]
         -   [Skills:]
+        -   [Adversaries (threats):]
     -   [Steps for all routes:]
         -   [Get a burner phone:]
         -   [Get an anonymous pre-paid SIM card:]
@@ -669,19 +670,35 @@ Picking your route:
 
 -   You have no IT skills at all and this guide looks like an alien language to you?
 
-    -   **You should stick with the TAILS route.**
+    -   **You should go with the TAILS route.**
 
 -   You have some IT skills and mostly understand this guide so far
 
-    -   **Go with TAIL or Whonix routes.**
+    -   **You should go with TAIL or Whonix routes.**
 
 -   You have moderate to high IT skills and you already knew much of what's in this guide
 
-    -   **Go with anything you like including Qubes.**
+    -   **You should go with anything you like including Qubes.**
 
 -   You are a l33T hacker, there is no spoon, the cake is a lie
 
     -   **This guide is not for you**
+
+### Adversaries (threats):
+
+-   If your main concern is forensic examination of your devices:
+
+    -   **You should go with the TAILS route.**
+
+-   If your main concerns are remote adversaries that might uncover your online identity in various platforms:
+
+    -   **You should go with the Whonix or Qubes routes.**
+
+In all cases, you should read these two pages from the Whonix documentation that will give you in depth insight about your choices:
+
+-   <https://www.whonix.org/wiki/Dev/Threat_Model>
+
+-   <https://www.whonix.org/wiki/Comparison_with_Others>
 
 Steps for all routes:
 ---------------------
@@ -3173,6 +3190,7 @@ These are the steps to create a Windows 10 (20H2 as of November 2020) Installati
   [Picking your route:]: #picking-your-route
   [Budget/Material limitations:]: #budgetmaterial-limitations
   [Skills:]: #skills
+  [Adversaries (threats):]: #adversaries-threats
   [Steps for all routes:]: #steps-for-all-routes
   [Get a burner phone:]: #get-a-burner-phone
   [Get an anonymous pre-paid SIM card:]: #get-an-anonymous-pre-paid-sim-card
