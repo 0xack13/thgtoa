@@ -2454,7 +2454,9 @@ Then we will download a convenient utility called PrivaZer that will allow you d
 
         -   Select Clean Options **(Be careful with this option as it will erase all the free space on the selected partition, especially if you are running the decoy OS. Do not erase the free space or anything else on the second partition as you risk destroying your Hidden OS)**
 
-        -   If you have SSD, Select SSD with Trim + 1 pass zero
+            -   If you have an SSD drive, Select SSD with Trim^137^ + 1 pass zero (just to be sure as mentioned earlier, Trim itself should be enough^140^)
+
+            -   If you have an HDD drive, Select HDD with at least 1 pass.
 
 ### Shellbags:
 
